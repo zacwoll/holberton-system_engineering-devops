@@ -1,3 +1,3 @@
 # holberton-system_engineering-devops
-This repository is a collection of answers to questions from holbertons 0x00 Shell project.
-The answers are located within files with the given question's label as the filename.
+This repository is a collection of answers to questions from holbertons 0x00-0x03 Shell projects.
+Within each subdirectory are files that answer the questions of the project.
