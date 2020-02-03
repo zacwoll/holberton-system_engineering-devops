@@ -1,1 +1,2 @@
-#!/usr/bin/env bash
+#!/bin/bash
+echo $PATH | grep -o ":/" | echo $(($(wc -l)+1))
