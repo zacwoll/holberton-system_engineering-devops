@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
-# installs nginx
+# Installs and properly configures an NGINX server
 
-apt-get -y update
-apt-get -y install nginx
+sudo apt-get -y update
+sudo apt-get -y install nginx
 
-echo "Holberton School" > /var/www/html/index.nginx-debian.html
-sed -i "/server_name _;/ a\\\trewrite ^/redirect_me http://www.holbertonschool.com permanent;" /etc/nginx/sites-available/default
+echo "Holberton School" > /var/www/html/index.html
+echo "Ceci n'est pas une page" > /var/www/html/404.html
 
-sed -i "/redirect_me/ a\\\terror_page 404 /custom_404.html;" /etc/nginx/sites-available/default
-echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
+sudo sed -i "/listen 80 default_server;/a rewrite ^/redirect_me https://youtu.be/WPkMUU9tUqk permanent;" /etc/nginx/sites-available/default
+sudo sed -i "/listen 80 default_server;/a error_page 404 /404.html;" /etc/nginx/sites-available/default
 
-service nginx start
+sudo ufw allow 'Nginx HTTP'
+sudo service nginx restart
