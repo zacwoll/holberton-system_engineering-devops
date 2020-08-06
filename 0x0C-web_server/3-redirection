@@ -6,6 +6,6 @@ sudo apt-get -y install nginx
 
 echo "Holberton School" > /var/www/html/index.html
 
-sudo sed -i "/listen 80 default_server;/a rewrite ^/redirect_me https://youtu.be/WPkMUU9tUqk permanent;" /etc/nginx/sites-available/default
+sudo sed -i "/server_name _;/a rewrite ^/redirect_me https://youtu.be/WPkMUU9tUqk permanent;" /etc/nginx/sites-available/default
 
 sudo service nginx start
