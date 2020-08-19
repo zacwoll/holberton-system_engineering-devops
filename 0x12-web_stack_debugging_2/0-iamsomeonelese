@@ -1,0 +1,3 @@
+#!/bin/bash
+# change user, use whoami
+sudo -u "$1" whoami
