@@ -1,0 +1,20 @@
+# A command for verifying haproxy.cfg
+haproxy -c -V -f /etc/haproxy/haproxy.cfg
+
+# A bunch of webpages I found useful
+
+# certbot's instructions for installing cert
+https://certbot.eff.org/lets-encrypt/ubuntuxenial-haproxy
+
+# letsencrypt.org telling me i hit my rate limit
+https://letsencrypt.org/docs/rate-limits/
+
+# crt.sh can show the certificates logged by your domain name
+https://crt.sh/?q=flashdown.tech
+
+# The command I used everytime I decided I didn't know what I was doing
+sudo certbot delete --cert-name flashdown.tech
+
+# The command I'm supposed to use to concat the fullchain.pem and the
+# privkey.pem
+cat /etc/letsencrypt/live/flashdown.tech/fullchain.pem /etc/letsencrypt/live/flashdown.tech/privkey.pem > /etc/haproxy/ssl/flashdown.tech.pem
