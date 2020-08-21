@@ -7,16 +7,13 @@ apt-get -y update
 apt-get -y install haproxy=1.8.\*
 
 # Load Balancer Config
-echo "\
-frontend load_balancer
-	bind *:80
-	mode http
-	default_backend servers
-	
-backend servers
-	mode http
-	balance roundrobin
-	server 1403-web-01 35.231.119.161
-	server 1403-web-02 54.88.109.235" >> /etc/haproxy/haproxy.cfg
-
-sudo service haproxy restart
+echo "backend web-backend
+balance roundrobin
+server 800-web-01 35.196.121.183:80 check
+server 800-web-02 35.196.239.45:80 check
+frontend http
+bind *:80
+mode http
+default_backend web-backend
+" >> /etc/haproxy/haproxy.cfg
+service haproxy restart
