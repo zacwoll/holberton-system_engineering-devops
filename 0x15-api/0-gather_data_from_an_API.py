@@ -10,16 +10,18 @@ if __name__ == '__main__':
     r = requests.get('https://jsonplaceholder.typicode.com/users/{}'
                      .format(argv[1]))
     name = r.json().get('name')
+
     r = requests.get('https://jsonplaceholder.typicode.com/todos?userId={}'
                      .format(argv[1]))
+    data = r.json()
     completed = total = 0
-    for task in r.json():
+    for task in data:
         total += 1
         if task.get('completed'):
-            done += 1
+            total += 1
 
-    print("Employee {} is done with tasks({}/{})".format(name, completed,
-                                                         total))
-    for _ in r.json():
-        if _.get('completed'):
-            print("".join(["\t ", _.get('title')]))
+    print('Employee {} is done with tasks({}/{}):'
+          .format(name, completed, total))
+    for task in data:
+        if task.get('completed'):
+            print('\t {}'.format(task.get('title')))
