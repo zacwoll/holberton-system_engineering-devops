@@ -16,4 +16,5 @@ if __name__ == '__main__':
         name, [_.get('completed') for _ in r.json()].count(True),
         len(r.json())))
     for _ in r.json():
-        print("".join(["\t ", _.get('title')]))
+        if _.get('completed'):
+            print("".join(["\t ", _.get('title')]))
