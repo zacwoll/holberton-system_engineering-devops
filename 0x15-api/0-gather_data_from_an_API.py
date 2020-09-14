@@ -18,7 +18,7 @@ if __name__ == '__main__':
     for task in data:
         total += 1
         if task.get('completed'):
-            total += 1
+            completed += 1
 
     print('Employee {} is done with tasks({}/{}):'
           .format(name, completed, total))
