@@ -17,4 +17,4 @@ if __name__ == '__main__':
                                 quoting=csv.QUOTE_ALL)
         for _ in r.json():
             csv_writer.writerow([argv[1], uname, _.get('completed'),
-                           _.get('title')])
+                                 _.get('title')])
